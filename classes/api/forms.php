@@ -31,7 +31,7 @@ class Caldera_Forms_API_Forms extends  Caldera_Forms_API_CRUD {
             //These args are different then $this->request_args()
             'args'                => [
                 'cf_edit_nonce' => [
-                    'type' => 'string',
+                    'type' => array( 'string', 'integer' ),
                     'description' => __('Caldera Forms editor nonce', 'caldera-forms'),
                     'required' => 'true'
                 ],
@@ -92,9 +92,9 @@ class Caldera_Forms_API_Forms extends  Caldera_Forms_API_CRUD {
 
     /**
      * Permissions for saving a form via REST API
-     * 
+     *
      * Secures for POST /cf-api/v2/forms
-     * 
+     *
      * @since 1.9.0
      */
 	public function save_form_permissions_check(\WP_REST_Request $request){
@@ -108,9 +108,9 @@ class Caldera_Forms_API_Forms extends  Caldera_Forms_API_CRUD {
 
     /**
      * Save a form via REST API
-     * 
+     *
      * Handler for POST /cf-api/v2/forms
-     * 
+     *
      * @since 1.9.0
      */
 	public function save_form(\WP_REST_Request $request){
